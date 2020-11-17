@@ -1,0 +1,48 @@
+project_params:
+  version: 0.1.5
+  execution_runs: 10
+
+evolutionary_learning_params:
+  population_size: 10
+  crossover_percentage: 0.7
+  mutation_percentage: 0.15
+  mutation_rate: 0.6
+  max_generations: 50
+  fitness_lambda: 0.3
+  lambda_factor: 0.5
+
+evolutionary_learning_methods:
+  chromosome_representation: 1D
+  crossover_methods: commonality_based_crossover
+  mutation_methods: bit_flip_mutation
+  parent_selection_method: random_selection
+  diversity_only_error: False
+
+multiple_classification_models_params:
+  fusion_method: majority_voting
+  heterogeneous_classification: True
+  cross_val: 5
+  fitness_score_metric: f1_micro
+  selected_classifiers: [DT5]
+  max_depth: 5
+
+dynamic_ensemble_selection_params:
+
+data_params:
+  dataset: digits
+  path: data/
+  normalization: Standardization
+
+evaluation_params:
+  score_metric: f1_micro
+  path: results
+  error_analysis: False
+  error_analysis_params: [lambda_factor, population_size,crossover_percentage,
+                          mutation_percentage,mutation_rate,
+                          fitness_lambda,crossover_methods,
+                          mutation_methods,parent_selection_method,
+                          dataset, normalization]
+
+
+
+
